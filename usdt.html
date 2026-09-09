@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+         <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- PWA -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- iPhone/iPad -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+    <meta name="apple-mobile-web-app-title" content="Binance Demo">
+
+   <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="./img/images/TP-apple-touch-icon.png"
+>
+
+    <title>Binance Demo</title>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./global.css">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                -webkit-tap-highlight-color: transparent;
+                font-family: 'Inter', sans-serif;
+            }
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                /* background: #2f3a4c; */
+            }
+            body {
+                display: flex;
+                justify-content: center;
+            }
+            button,
+            a {
+                border: 0;
+                outline: 0;
+                background: none;
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .app {
+                width: 100%;
+                max-width: 430px;
+                height: 100dvh;
+                background: #f4f5fa;
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .page-scroll {
+                flex: 1;
+                overflow-y: auto;
+                overflow-x: hidden;
+                scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+            }
+            .page-scroll::-webkit-scrollbar {
+                display: none;
+            }
+
+            .header {
+                height: 56px;
+                padding: 18px 16px 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .header i {
+                    font-size: 31px;
+                     color: #3a3a3e;
+            }
+            .header-title {
+                font-size: 18px;
+                font-weight: 500;
+                color: #3a3a3e;
+            }
+/* ICON CHUNG */
+.header img {
+           width: 73px;
+    height: 77px;
+    /* object-fit: contain; */
+    margin-right: -26px;
+}
+
+/* nếu muốn chỉnh riêng từng icon */
+.icon-back {
+    width: 22px;
+}
+
+.icon-info {
+    width: 20px;
+}
+            .balance {
+                padding: 28px 16px 24px;
+            }
+            .balance-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .coin {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .coin-logo-wrap {
+                width: 34px;
+                height: 34px;
+                position: relative;
+            }
+            .coin-logo {
+                width: 102px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: -33px;
+    margin-top: -11px;
+            }
+            .chain {
+                position: absolute;
+                left: 4px;
+                bottom: 1px;
+                font-size: 6px;
+                color: #fff;
+                background: rgba(0, 0, 0, 0.45);
+                padding: 0 2px;
+                border-radius: 3px;
+            }
+            .coin-name-row {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+            .copy-icon-img {
+        width: 58px;
+    height: 47px;
+    object-fit: contain;
+    opacity: 0.6;
+    margin-left: -14px;
+}
+            .coin-name {
+                font-size: 16px;
+                font-weight: 600;
+                color: #3a3a3e;
+            }
+            .copy-icon {
+                font-size: 14px;
+                color: #a7a9b1;
+            }
+
+            .amount {
+                text-align: right;
+            }
+            .amount h2 {
+                font-size: 19px;
+                font-weight: 500;
+                color: #3a3a3e;
+                    font-weight: 600;
+            }
+            .amount span {
+                font-size: 12px;
+                color: #9c9fa8;
+            }
+
+            .market {
+    margin: 12px 16px;
+    height: 56px;
+
+    background: #fff;
+    border-radius: 14px;
+
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LEFT */
+.market-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #3a3a3e;
+}
+
+/* RIGHT */
+.market-right {
+      display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-right: -7px;
+}
+
+/* PRICE */
+.market-price {
+    text-align: right;
+    line-height: 1.2;
+}
+
+.market-price strong {
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    color: #3a3a3e;
+}
+
+.market-price span {
+    font-size: 11px;
+    color: #9c9fa8;
+}
+
+/* % BOX */
+.percent {
+    min-width: 48px;
+    height: 24px;
+
+    background: #bfc4ca;
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+}
+
+/* ARROW */
+.arrow-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.6;
+}
+            .percent {
+               width: 67px;
+    height: 31px;
+    border-radius: 5px;
+    background: #bfc4ca;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin-left: -4px;
+    justify-content: center;
+            }
+
+            .tabs {
+                height: 58px;
+                padding: 0 16px;
+                display: flex;
+                align-items: center;
+                gap: 28px;
+                font-weight: 500;
+                    margin-top: -16px;
+            }
+            .tab {
+                font-size: 15px;
+                color: #9b9ea7;
+                position: relative;
+            }
+            .tab.active {
+                color: #3a3a3e;
+            }
+            .tab.active::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -12px;
+                width: 22px;
+                height: 2px;
+                background: #111318;
+                border-radius: 99px;
+            }
+            .filter-icon {
+                margin-left: auto;
+                font-size: 24px;
+            }
+
+            .list {
+               margin: 2px 16px; /* thêm khoảng trắng trên + 2 bên */
+    background: #fff;
+    border-radius: 16px; /* bo full */
+    overflow: hidden;
+            }
+
+            .item {
+                min-height: 58px;
+                /* padding: 8px 14px; */
+                display: flex;
+                justify-content: space-between;
+                /* align-items: flex-start; */
+                position: relative;
+                gap: 8px;
+            }
+            .item::after {
+    content: '';
+    position: absolute;
+    left: 58px;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: #eeeeef;
+}
+            .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s ease;
+}
+
+.item.active {
+    background: rgba(0,0,0,0.06);
+}
+            .item::after {
+                content: '';
+                position: absolute;
+                left: 58px;
+                right: 0;
+                bottom: 0;
+                height: 1px;
+                background: #eeeeef;
+            }
+
+            .left {
+                flex: 1;
+                display: flex;
+                gap: 11px;
+                min-width: 0;
+            }
+
+            .tx-icon {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                flex-shrink: 0;
+            }
+            .tx-icon i {
+                font-size: 23px;
+                transform: rotate(45deg);
+            }
+            .send {
+                background: #53c69d;
+            }
+            .receive {
+                background:#2c80fd;
+            }
+
+            .addr-row {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+            .addr {
+             max-width: 145px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3a3a3e;
+            }
+            .addr-copy {
+                font-size: 13px;
+                color: #a7a9b1;
+            }
+            .type {
+                font-size: 11px;
+                color: #9b9ea7;
+                margin-top: 3px;
+                font-weight: 500;
+            }
+
+            .right {
+                width: 116px;
+                text-align: right;
+            }
+            .tx-amount {
+                margin-left: -7px;
+                font-size: 13px;
+                font-weight: 700;
+                white-space: nowrap;
+            }
+            .pos {
+                color: #1d7aff;
+            }
+            .neg {
+                color:#00a684;
+            }
+            .time {
+                font-size: 10px;
+                color: #9b9ea7;
+                margin-top: 4px;
+                white-space: nowrap;
+            }
+
+            .footer {
+             position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px 15px 25px;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 58px;
+    gap: 9px;
+    z-index: 20;
+    background: white;
+            }
+
+            .btn {
+                /* height: 42px; */
+                border-radius: 9px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 7px;
+                font-size: 14px;
+                font-weight: 700;
+                color: #fff;
+            }
+            .btn i {
+                font-size: 21px;
+            }
+            .btn-send {
+                background:#53c69d;
+            }
+            .btn-receive {
+                background:#2c80fd;
+            }
+            .btn-swap {
+                background: #f2f3f5;
+                color: #111318;
+                flex-direction: column;
+                gap: 0;
+                font-size: 10px;
+            }
+            /* ICON CHUNG */
+            .icon-send{
+     width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+.btn img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+.btn .icon-send{
+     width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+.btn .icon-receive{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+.btn span {
+    transform: translateX(5px);
+}
+
+/* ICON SWAP NHỎ HƠN */
+.btn-swap img {
+      width: 63px;
+    height: 83px;
+        margin-top: -29px;
+}
+.btn-swap {
+        width: 59px;
+    height: 51px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* gap: 2px; */
+    margin-left: -4px;
+}
+/* ICON */
+.icon-swap {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+/* TEXT */
+.btn-swap span {
+    font-size: 10px;
+    color: #111;
+        margin-top: -29px;
+}
+        </style>
+    </head>
+
+    <body>
+        <div id="app" class="page">
+            
+        </div>
+        <div class="app">
+            <div class="page-scroll" id="appScroll">
+                <header class="header">
+                    <a href="index.html"><i class="bx bx-chevron-left"></i></a>
+                    <div class="header-title">Tether USD</div>
+                      <img src="img/images/info.png" class="icon-info">
+                </header>
+
+                <section class="balance">
+                    <div class="balance-top">
+                        <div class="coin">
+
+    <div class="coin-logo-wrap">
+
+        <div class="img-trc20">
+        <img class="coin-logo" src="img/images/TRC20.png" />
+        </div>
+       
+        <!-- <div class="chain">TRC20</div> -->
+    </div>
+
+    <div class="coin-name-row">
+        <div class="coin-name">USDT</div>
+        <img src="img/images/copy.png" class="copy-icon-img">
+    </div>
+</div>
+
+                        <div class="amount">
+                            <h2>619.22</h2>
+                            <span>$2.88</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="market">
+                    <div class="market-title">价格&行情</div>
+                    <div class="market-right">
+                        <div class="market-price">
+                            <strong>1.0000</strong>
+                            <span>$1.0000</span>
+                        </div>
+                        <div class="percent">0%</div>
+                       <i class="bx bx-chevron-right" style="font-size: 25px; color: #3a3a3e;"></i>
+                    </div>
+                </section>
+
+                <section class="tabs">
+                    <div class="tab active">全部</div>
+                    <div class="tab">转入</div>
+                    <div class="tab">转出</div>
+                    <i class="bx bx-filter-alt filter-icon"></i>
+                </section>
+
+                <section class="list">
+                    <script>
+                        const data = [
+    ['send', '6b34b1...eef13f', '转出', '-473 USDT', '09/09  13:24:47'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+241 USDT', '09/08 21:40:37'],
+    ['receive', 'KGTn31...kte51K', '转入', '+372 USDT', '09/08 17:35:16'],
+    ['send', '19d59f...a5de40', '转出', '-455 USDT', '09/08 10:12:45'],
+    ['receive', 'd4c323...c3d3ed', '转入', '+127 USDT', '09/05 12:31:37'],
+    ['send', '3467bc...c4eda7', '转出', '-340 USDT', '09/03 07:41:24'],
+    ['send', 'b3b206...b83e87', '转出', '-255 USDT', '08/29 22:30:36 '],
+    ['receive', 'TFyqiC...zummvH', '转入', '+430 USDT', '08/24 08:22:34'],
+    ['send', '17f646...454c86', '转出', '-400 USDT', '08/19 03:41:51'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+499 USDT', '08/16 14:15:24'],
+    ['send', '3b18af...d2c66a', '转出', '-302 USDT', '08/07 22:30:09'],
+    ['receive', 'TFyqiC...zummvH', '转入', '+406 USDT', '07/29 20:16:42'],
+    ['send', 'TWbcbZ...a2aZyn', '转出', '-514 USDT', '07/15 22:11:50'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+277 USDT', '07/12 21:07:29'],
+    ['send', 'TWbcbZ...a2aZyn', '转出', '-260 USDT', '06/15 21:18:29'],
+    ['send', 'f14e02...109a96', '转出', '-120 USDT', '06/12 08:26:32'],
+    ['send', 'TFyqiC...zummvH', '转出', '-300 USDT', '06/10 11:09:21'],
+    ['send', 'TFyqiC...zummvH', '转出', '-420 USDT', '06/06 22:43:11'], 
+    ['send', 'TFyqiC...zummvH', '转出', '-260 USDT', '04/02 21:52:33'],
+    ['send', '794da7...b56d1d', '转出', '-300 USDT', '04/01 09:34:22'],
+    ['send', 'JTE98L...nfd71F', '转出', '-100 USDT', '03/029 23:31:10'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+400 USDT', '03/27 21:11:29'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+565 USDT', '03/26 10:07:45'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+622 USDT', '03/25 07:50:11'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+700 USDT', '03/22 11:31:26'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+174 USDT', '03/21 22:17:44'],
+    ['send', 'JTE98L...nfd71F', '转出', '-200 USDT', '03/19 23:31:10'],
+    ['send', 'JTE98L...nfd71F', '转出', '-100 USDT', '03/15 11:26:42'],
+    ['send', 'JTE98L...nfd71F', '转出', '-220 USDT', '03/11 20:19:46'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+400 USDT', '03/09 10:22:26'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+300 USDT', '03/05 09:22:29'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+630 USDT', '03/03 06:56:11'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+700 USDT', '02/26 19:24:30'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+700 USDT', '02/24 21:40:26'],
+    ['send', 'TFyqiC...zummvH', '转出', '-450 USDT', '02/22 11:32:19'],
+    ['send', 'TFyqiC...zummvH', '转出', '-310 USDT', '02/20 23:58:14'],
+    ['send', 'TFyqiC...zummvH', '转出', '-130 USDT', '02/18 08:17:41'],
+    ['send', 'TFyqiC...zummvH', '转出', '-600 USDT', '02/14 15:26:11'],
+    ['send', 'TFyqiC...zummvH', '转出', '-260 USDT', '02/09 22:47:19'],
+    ['send', 'TFyqiC...zummvH', '转出', '-370 USDT', '02/05 18:43:25'],
+    ['send', 'TFyqiC...zummvH', '转出', '-160 USDT', '02/02 09:10:36'],
+    ['send', '3964e687b...a0fe16fbfe', '转出', '-310 USDT', '01/25 23:53:09'],
+    ['send', 'TFyqier4C...zummvve5H', '转出', '-510 USDT', '01/24 21:08:35'],
+    ['send', 'cf3bc49c1...73286ca22c', '转出', '-300 USDT', '01/23 01:44:30'],
+    ['send', 'TFfgyyqiC...zmi9ummvH', '转出', '-211 USDT', '01/22 09:12:49'],
+    ['receive', 'THKD8hrtC...zjto6C8g1', '转入', '+274 USDT', '01/20 14:20:16'],
+    ['receive', 'THKD8gh8C...z6C8hy4g1', '转入', '+600 USDT', '01/16 12:44:19'],
+    ['receive', 'THKD887fC...z90m6C8g1', '转入', '+400 USDT', '01/11 09:28:12'],
+    ['send', 'TFyqiC...zummvH', '转出', '-460 USDT', '01/10 17:22:57'],
+    ['send', 'TFyqiC...zummvH', '转出', '-200 USDT', '01/07 09:12:45'],
+    ['send', 'TFyqiC...zummvH', '转出', '-310 USDT', '01/05 16:43:12'],
+    ['send', 'TFyqiC...zummvH', '转出', '-170 USDT', '01/03 07:26:54'],
+    ['send', 'TFyqiC...zummvH', '转出', '-241 USDT', '01/02 22:17:42'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+400 USDT', '12/28 09:11:43'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+425 USDT', '12/26 12:09:45'],
+    ['receive', 'THKD8C...z6C8g1', '转入', '+519 USDT', '12/25 09:40:31'],
+    ['send', 'TFyqiC...zummvH', '转出', '-310 USDT', '12/23 18:21:50'],
+    ['send', 'TFyqiC...zummvH', '转出', '-282 USDT', '12/20 20:45:11'],
+    ['send', 'TFyqiC...zummvH', '转出', '-488 USDT', '12/17 22:19:42'],];
+
+   
+   
+                        document.write(
+  data.map((e) => `
+<a href="tx-detail.html" class="item">
+    <div class="left">
+        <div class="tx-icon ${e[0]}">
+            <i class="bx ${e[0] === 'send' ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'}"></i>
+        </div>
+
+        <div>
+            <div class="addr-row">
+                <div class="addr">${e[1]}</div>
+                <i class="bx bx-copy addr-copy"></i>
+            </div>
+
+            <div class="type">${e[2]}</div>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="tx-amount ${e[0] === 'send' ? 'neg' : 'pos'}">${e[3]}</div>
+        <div class="time">${e[4]}</div>
+    </div>
+</a>
+
+`).join('')
+);
+                    </script>
+                </section>
+            </div>
+<script>
+document.querySelectorAll('.item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        this.classList.add('active');
+
+        setTimeout(() => {
+            window.location.href = this.getAttribute('href');
+        }, 120);
+    });
+});
+</script>
+    <footer class="footer">
+    <button class="btn btn-send">
+        <img src="img/images/send.png" class="icon-send">
+        <div class="text-send" style="    margin-left: -14px;">
+                 <span>转账</span>
+        </div>
+     
+    </button>
+
+   <button class="btn btn-receive" data-link="receive.html">
+    <img src="img/images/receive.png" class="icon-receive">
+    
+    <div class="text-receive" style="margin-left: -14px;">
+        <span>收款</span>
+    </div>
+</button>
+
+    <button class="btn-swap">
+        <img src="img/images/swap.png" class="icon-swap">
+        <span>兑换</span>
+    </button>
+</footer>
+        </div>
+        <script>
+document.querySelectorAll('.btn[data-link]').forEach(btn => {
+    btn.addEventListener('click', function() {
+
+        this.classList.add('active');
+
+        setTimeout(() => {
+            window.location.href = this.dataset.link;
+        }, 120);
+    });
+});
+</script>
+    </body>
+    
+</html>

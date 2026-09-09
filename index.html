@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    >
+
+    <title>TokenPocket</title>
+
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- PWA -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- iPhone/iPad -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+    <meta
+        name="apple-mobile-web-app-title"
+        content="TokenPocket"
+    >
+
+    <!-- Đổi v=2 khi cần làm mới bộ nhớ đệm icon trên iPhone -->
+    <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="./img/images/TP-apple-touch-icon.png?v=2"
+    >
+
+    <!-- CSS chung phải đặt trước CSS riêng -->
+    <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./TokenPocket1.css">
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    >
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    >
+</head>
+
+<body>
+    <div id="transition-layer" aria-hidden="true"></div>
+
+    <main class="app-container">
+        <header class="top-header">
+            <div class="header-left">
+                <button
+                    class="plain-btn header-img-btn"
+                    type="button"
+                    aria-label="Mở menu"
+                >
+                    <img
+                        class="header-icon icon-menu-line"
+                        src="./img/images/gach1.png"
+                        alt=""
+                    >
+                </button>
+
+                <span class="status-dot" aria-hidden="true"></span>
+            </div>
+
+            <div class="header-right">
+                <img
+                    class="header-icon icon-wallet-menu"
+                    src="./img/images/menu1.png"
+                    alt="Menu ví"
+                >
+            </div>
+        </header>
+
+        <section class="balance-card">
+            <img
+                class="bg-icon"
+                src="./img/images/iconmo.png"
+                alt=""
+            >
+
+            <div class="balance-top">
+                <div class="wallet-name">
+                    BNB-HD
+                    <i class="bx bx-copy" aria-hidden="true"></i>
+                </div>
+
+                <i
+                    class="bx bx-dots-horizontal-rounded dots-icon"
+                    aria-hidden="true"
+                ></i>
+            </div>
+
+            <div class="balance-main">
+                <span>$</span>
+                <strong>924.14</strong>
+
+                <div class="img-eye">
+                    <img
+                        class="icon-eye"
+                        src="./img/images/eye.png"
+                        alt="Hiện hoặc ẩn số dư"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <section class="actions-grid">
+            <button class="action-item" type="button">
+                <img
+                    class="action-icon icon-send"
+                    src="./img/images/Chuyen1.png"
+                    alt=""
+                >
+                <span>转账</span>
+            </button>
+
+            <button class="action-item" type="button">
+                <img
+                    class="action-icon icon-receive"
+                    src="./img/images/Nhan1.png"
+                    alt=""
+                >
+                <span>收款</span>
+            </button>
+
+            <button class="action-item" type="button">
+                <img
+                    class="action-icon icon-swap"
+                    src="./img/images/swap.png"
+                    alt=""
+                >
+                <span>闪兑</span>
+            </button>
+
+            <button class="action-item" type="button">
+                <img
+                    class="action-icon icon-tools"
+                    src="./img/images/More Tools.png"
+                    alt=""
+                >
+                <span>更多工具</span>
+            </button>
+        </section>
+
+        <section class="tabs-section">
+            <div class="tabs-left">
+                <button class="tab active" type="button">
+                    资产
+                    <i class="bx bxs-down-arrow" aria-hidden="true"></i>
+                </button>
+
+                <button class="tab" type="button">DeFi</button>
+                <button class="tab" type="button">NFT</button>
+
+                <div class="text-approve">
+                    <button class="tab" type="button">授权</button>
+                </div>
+            </div>
+
+            <div class="tabs-right">
+                <button
+                    class="plain-btn"
+                    type="button"
+                    aria-label="Tìm kiếm"
+                >
+                    <i class="bx bx-search" aria-hidden="true"></i>
+                </button>
+
+                <button
+                    class="plain-btn"
+                    type="button"
+                    aria-label="Thêm token"
+                >
+                    <i class="bx bx-plus-circle" aria-hidden="true"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="token-list">
+                <div class="token-item">
+                    <div class="token-icon-wrap">
+                        <img
+                            class="token-icon token-bnb"
+                            src="./img/images/BNB.jpg"
+                            alt="BNB"
+                        >
+                    </div>
+
+                    <div class="token-info">
+                        <div class="token-row">
+                            <h3>BNB</h3>
+                            <strong>0</strong>
+                        </div>
+
+                        <div class="token-row">
+                            <p>$631.75 <span class="green">+0.68%</span></p>
+                            <p>$0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="token-item" href="./usdt.html">
+                    <div class="token-icon-wrap">
+                        <img
+                            class="token-icon token-usdt"
+                            src="./img/images/BSC.png"
+                            alt="USDT"
+                        >
+                    </div>
+
+                    <div class="token-info">
+                        <div class="token-row">
+                            <h3>USDT</h3>
+                            <strong>924.14</strong>
+                        </div>
+
+                        <div class="token-row">
+                            <p>$1.0000 <span>0%</span></p>
+                            <p>$924.14</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="low-value">
+                <div class="low-value-title">
+                    <span>小额资产 (1)</span>
+                    <i class="bx bx-chevron-up" aria-hidden="true"></i>
+                </div>
+
+                <a class="token-item" href="./usdt.html">
+                    <div class="token-icon-wrap">
+                        <img
+                            class="token-icon token-trx"
+                            src="./img/images/TRX.png"
+                            alt="TRX"
+                        >
+                    </div>
+
+                    <div class="token-info">
+                        <div class="token-row">
+                            <h3>TRX</h3>
+                            <strong>29</strong>
+                        </div>
+
+                        <div class="token-row">
+                            <p>$0.3229 <span class="red">-0.03%</span></p>
+                            <p>$</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <nav class="bottom-nav" aria-label="Điều hướng chính">
+            <button class="nav-item asset-item" type="button">
+                <div class="asset-icon">
+                    <img src="./img/images/Asset1.png" alt="">
+                </div>
+                <div class="text-asset">
+                    <span>资产</span>
+                </div>
+            </button>
+
+            <button class="nav-item market-item" type="button">
+                <div class="market-icon">
+                    <img src="./img/images/Market.png" alt="">
+                </div>
+                <div class="text-market">
+                    <span>行情</span>
+                </div>
+            </button>
+
+            <button class="nav-item trade-item" type="button">
+                <div class="trade-icon">
+                    <img src="./img/images/Trade.png" alt="">
+                </div>
+                <div class="text-trade">
+                    <span>交易</span>
+                </div>
+            </button>
+
+            <button class="nav-item discover-item" type="button">
+                <div class="discover-icon">
+                    <img src="./img/images/Discover.png" alt="">
+                </div>
+                <div class="text-discover">
+                    <span>发现</span>
+                </div>
+            </button>
+
+            <button class="nav-item user-item" type="button">
+                <div class="user-icon">
+                    <img src="./img/images/user.png" alt="">
+                </div>
+                <div class="text-me">
+                    <span>我的</span>
+                </div>
+            </button>
+        </nav>
+    </main>
+
+    <script>
+        (() => {
+            const transitionLayer = document.getElementById("transition-layer");
+            const navigationLinks = document.querySelectorAll(".token-item[href]");
+
+            navigationLinks.forEach((link) => {
+                link.addEventListener("click", (event) => {
+                    event.preventDefault();
+
+                    const destination = link.getAttribute("href");
+
+                    if (!destination) {
+                        return;
+                    }
+
+                    link.classList.add("active");
+
+                    if (transitionLayer) {
+                        transitionLayer.classList.add("show");
+                    }
+
+                    window.setTimeout(() => {
+                        window.location.assign(destination);
+                    }, 280);
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

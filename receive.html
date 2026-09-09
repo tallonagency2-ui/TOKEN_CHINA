@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+ <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- PWA -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- iPhone/iPad -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+    <meta name="apple-mobile-web-app-title" content="Binance Demo">
+
+   <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="./img/images/TP-apple-touch-icon.png"
+>
+
+    <title>Binance Demo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./global.css">
+<link rel="stylesheet" href="receive.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="back" onclick="history.back()">‹</div>
+        <div class="title">收款</div>
+        <div class="right"></div>
+    </div>
+
+    <!-- CARD -->
+    <div class="card">
+
+        <!-- WARNING -->
+        <div class="warning">
+    <img src="img/images/waring.png" class="warning-icon">
+    <span>该地址仅支持TRX/TRC20相关资产</span>
+</div>
+
+        <!-- QR -->
+        <div class="qr-box">
+            <img src="img/images/qr1.png" class="qr-img">
+            <!-- <img src="img/images/trc20.png" class="qr-logo"> -->
+        </div>
+
+        <!-- ADDRESS -->
+        <div class="address-box">
+            <div class="label">收款地址</div>
+            <div class="address" id="address">
+            TPfMQta25B5kbGDV9iP55WDw11ef59ugwT
+            </div>
+        </div>
+
+        <!-- ACTION -->
+        <div class="actions">
+
+<div class="action">
+    <img src="img/images/share.png" class="icon-share">
+    <span class="text-share">分享</span>
+</div>
+
+<div class="divider"></div>
+
+<div class="action">
+    <img src="img/images/copy.png" class="icon-copy">
+    <span class="text-copy">复制</span>
+</div>
+
+<div class="divider"></div>
+
+<div class="action">
+    <img src="img/images/edit.png" class="icon-edit">
+    <span class="text-edit">设置数额</span>
+</div>
+
+</div>
+
+    </div>
+
+    <!-- LOGO MỜ -->
+    <div class="logo-bottom">
+        <img src="img/images/tp.png">
+    </div>
+
+</div>
+
+<script>
+/* COPY */
+document.getElementById('copyBtn').addEventListener('click', () => {
+    const text = document.getElementById('address').innerText;
+    navigator.clipboard.writeText(text);
+
+    // toast xịn hơn alert
+    const toast = document.createElement("div");
+    toast.innerText = "Đã copy địa chỉ";
+    toast.className = "toast";
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 1500);
+});
+
+function goBack() {
+    window.location.href = "usdt.html";
+}
+
+</script>
+
+</body>
+</html>
